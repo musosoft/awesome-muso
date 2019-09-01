@@ -17,6 +17,14 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 ```powershell
 choco install microsoft-windows-terminal
 ```
+- [install Yarn](https://yarnpkg.com/) - Package manager for JavaScript.
+```powershell
+choco install yarn
+```
+- [install GitKraken](https://www.gitkraken.com/) - Nice Git Client.
+```powershell
+choco install gitkraken
+```
 - [install Sublime Text](https://www.sublimetext.com) - Text editor.
 ```powershell
 choco install sublimetext3
