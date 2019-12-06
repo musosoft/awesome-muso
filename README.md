@@ -13,14 +13,19 @@ Curated list of tools I'm using, step by step right after installation of OS
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
+- [install Fluent Terminal](https://github.com/felixse/FluentTerminal) - Better Windows Terminal.
+```powershell
+choco install fluent-terminal
+```
+
+- [install Ditto](https://ditto-cp.sourceforge.io/) - Clipboard manager.
+```powershell
+choco install ditto
+```
+
 - [install nvm](https://github.com/coreybutler/nvm-windows) - A node.js version management utility for Windows.
 ```powershell
 choco install nvm
-```
-
-- [install Terminal](https://github.com/microsoft/terminal/blob/master/README.md) - New Windows Terminal.
-```powershell
-choco install microsoft-windows-terminal
 ```
 
 - [install SourceTree](https://www.sourcetreeapp.com) - Nice Git Client.
@@ -28,11 +33,10 @@ choco install microsoft-windows-terminal
 choco install sourcetree
 ```
 
-- [install Sublime Text](https://www.sublimetext.com) - Text editor.
+- [install VS Code](https://code.visualstudio.com/) - Text editor.
 ```powershell
-choco install sublimetext3
+choco install vscode
 ```
-Optional: copy `~` directory to your `%userprofile%`
 
 - [install FiraCode font](https://github.com/tonsky/FiraCode/wiki/Sublimetext-Instructions) - Better readability font for Development.
 ```powershell
