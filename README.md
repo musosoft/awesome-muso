@@ -39,6 +39,11 @@ powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 
 # Install Windows Subsystem for Linux
 wsl --install
+shutdown -r -t 00
+wsl --set-default-version 2
+curl.exe -L -o Ubuntu.appx https://aka.ms/wslubuntu
+Add-AppxPackage .\Ubuntu.appx
+
 
 # (Optional) Edit and backup PowerShell command history
 code (Get-PSReadlineOption).HistorySavePath
