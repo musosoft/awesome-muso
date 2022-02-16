@@ -1,44 +1,45 @@
 
 # Awesome muso
 
-Curated list of tools I'm using, step by step right after installation of OS
+Curated list of tools I'm using, installed step by step right after installation of Windows 11 OS from Windows Terminal app.
 
-## Windows tools
-- [install Ninite](https://ninite.com/) - Easiest way to Install apps of choice e.g. Chrome, Steam, Skype, etc.
-- [install TCUP](https://tcup.eu/) - Total Commander Ultima Prime is advanced TC with a lots of apps and tools.
-
-### Development
-- [install Chocolatey](https://chocolatey.org/install) - Package manager for Windows.
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-```
+# Unrestrict execution of scripts in PowerShell
+Set-ExecutionPolicy unrestricted
 
-- [install Fluent Terminal](https://github.com/felixse/FluentTerminal) - Better Windows Terminal.
-```powershell
-choco install fluent-terminal
-```
+# ChrisTitusTech tool 
+iwr -useb https://git.io/JJ8R4 | iex
 
-- [install Ditto](https://ditto-cp.sourceforge.io/) - Clipboard manager.
-```powershell
-choco install ditto
-```
+# Sophia script
+irm script.sophi.app | iex
 
-- [install nvm](https://github.com/coreybutler/nvm-windows) - A node.js version management utility for Windows.
-```powershell
-choco install nvm
-```
+# Optimizer tool
+Invoke-Webrequest (Invoke-RestMethod -uri https://api.github.com/repos/hellzerg/optimizer/releases/latest | select -ExpandProperty assets | select -expand browser_download_url) -OutFile Optimizer.exe; & .\Optimizer.exe
 
-- [install SourceTree](https://www.sourcetreeapp.com) - Nice Git Client.
-```powershell
-choco install sourcetree
-```
+# Chocolatey package manager
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+choco feature enable -n allowGlobalConfirmation
+choco feature enable -n allowEmptyChecksums
 
-- [install VS Code](https://code.visualstudio.com/) - Text editor.
-```powershell
-choco install vscode
-```
+# Install software
+choco install vlc 7zip googlechrome vscode nodejs stremio steam battle.net qbittorrent firacode git ditto droidcamclient soundwire
 
-- [install FiraCode font](https://github.com/tonsky/FiraCode/wiki/Sublimetext-Instructions) - Better readability font for Development.
-```powershell
-choco install firacode
+# Add git and node to path
+refreshenv
+
+# Setup Git
+git config --global user.name "Roman Kovac"
+git config --global user.email "musosoft@gmail.com"
+
+# Install node packages
+npm i -g npm-upgrade
+
+# Ultimate Power cfg
+powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
+
+# Install Windows Subsystem for Linux
+wsl --install
+
+# (Optional) Edit and backup PowerShell command history
+code (Get-PSReadlineOption).HistorySavePath
 ```
