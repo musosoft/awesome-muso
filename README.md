@@ -1,7 +1,7 @@
 
 # Awesome muso
 
-Curated list of tools I'm using, installed step by step right after installation of Windows 11 OS from Windows Terminal app.
+Curated list of tools I'm using, installed step by step right after installation of Windows 11 OS from Windows Terminal (run as Administrator).
 
 ```powershell
 # Unrestrict execution of scripts in PowerShell
@@ -44,6 +44,14 @@ wsl --set-default-version 2
 curl.exe -L -o Ubuntu.appx https://aka.ms/wslubuntu
 Add-AppxPackage .\Ubuntu.appx
 
+# Create AppModelUnlock if it doesn't exist, required for enabling Developer Mode
+$RegistryKeyPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock"
+if (-not(Test-Path -Path $RegistryKeyPath)) {
+    New-Item -Path $RegistryKeyPath -ItemType Directory -Force
+}
+
+# Add registry value to enable Developer Mode
+New-ItemProperty -Path $RegistryKeyPath -Name AllowDevelopmentWithoutDevLicense -PropertyType DWORD -Value 1
 
 # (Optional) Edit and backup PowerShell command history
 code (Get-PSReadlineOption).HistorySavePath
