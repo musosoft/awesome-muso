@@ -28,8 +28,8 @@ choco install vlc 7zip googlechrome vscode nodejs stremio steam battle.net qbitt
 refreshenv
 
 # Setup Git
-git config --global user.name "Roman Kovac"
-git config --global user.email "musosoft@gmail.com"
+git config --global user.name ""
+git config --global user.email ""
 
 # Install node packages
 npm i -g npm-upgrade
