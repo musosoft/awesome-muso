@@ -34,3 +34,5 @@ git config --global user.email ""
 # (Optional) Edit and backup PowerShell command history
 code (Get-PSReadlineOption).HistorySavePath
 ```
+
+To install Windows Subsystem for Linux follow https://github.com/musosoft/awesome-muso/blob/master/install-WSL.md
