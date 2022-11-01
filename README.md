@@ -8,7 +8,7 @@ Curated list of tools I'm using, installed step by step right after installation
 Set-ExecutionPolicy unrestricted
 
 # ChrisTitusTech tool 
-iwr -useb https://christitus.com/win | iex
+irm christitus.com/win | iex
 
 # Sophia script
 irm script.sophi.app | iex
