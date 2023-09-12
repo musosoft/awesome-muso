@@ -2,6 +2,8 @@
 # Awesome muso
 
 Curated list of tools I'm using, installed step by step right after installation of Windows 11 OS from Windows Terminal (run as Administrator).
+```irm gg.gg/awesomemuso```
+
 
 ```powershell
 # Unrestrict execution of scripts in PowerShell
@@ -34,7 +36,7 @@ cp -Recurse private\.ssh ~
 .\private\remotes.ps1
 
 # Setup CopyQ
-choco install copyq
+# choco install copyq # outdated use: https://github.com/hluk/CopyQ/releases/latest
 cp public\copyq-commands.ini $env:APPDATA\copyq
 
 # Setup PowerShell
