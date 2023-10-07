@@ -29,6 +29,7 @@ Get-ChildItemLimitedDepth -Path $sourcePath -Depth 3 | Where-Object { $_.Name -e
         $remoteUrl = ($_ -split '\s+')[1]
         Write-Output "`n# Create directory and navigate to it"
         Write-Output "mkdir `"$parentDir`" -Force"
+        Write-Output "takeown /F `"$parentDir`" /R"
         Write-Output "cd `"$parentDir`""
         Write-Output "# Initialize git and add remote"
         Write-Output "git init"

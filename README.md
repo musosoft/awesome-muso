@@ -9,10 +9,10 @@ Curated list of tools I'm using, installed step by step right after installation
 # Unrestrict execution of scripts in PowerShell
 Set-ExecutionPolicy unrestricted
 
-# ChrisTitusTech tool - disable mouse acceleration, enable numlock
+# ChrisTitusTech tool - disable mouse acceleration, enable numlock, install WSL2...
 irm christitus.com/win | iex
 
-# Sophia script - run if official MS setup iso was used to debloat
+# Sophia script - run if official MS setup iso was used to remove preinstalled bloatware
 irm script.sophi.app | iex
 
 # Optimizer tool - run if some other system tweaks are needed
@@ -36,7 +36,7 @@ cp -Recurse private\.ssh ~
 .\private\remotes.ps1
 
 # Setup CopyQ
-# choco install copyq # outdated use: https://github.com/hluk/CopyQ/releases/latest
+iwr ((irm api.github.com/repos/hluk/CopyQ/releases/latest | % assets | % browser_download_url)) -OutFile CopyQ.exe; & .\CopyQ.exe
 cp public\copyq-commands.ini $env:APPDATA\copyq
 
 # Setup PowerShell
