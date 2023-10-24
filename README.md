@@ -37,7 +37,7 @@ cp -Recurse private\.ssh ~
 .\private\remotes.ps1
 
 # Setup CopyQ
-iwr ((irm api.github.com/repos/hluk/CopyQ/releases/latest | % assets | % browser_download_url)) -OutFile CopyQ.exe; & .\CopyQ.exe
+iwr (irm api.github.com/repos/hluk/CopyQ/releases/latest).assets[0].browser_download_url -o CopyQ.exe;& .\CopyQ.exe
 cp public\copyq-commands.ini $env:APPDATA\copyq
 
 # Setup PowerShell
