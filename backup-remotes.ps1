@@ -1,3 +1,18 @@
+# Define the output file path
+$currentDir = Get-Location
+$outputDir = Join-Path -Path $currentDir -ChildPath "private"
+$outputFilePath = Join-Path -Path $outputDir -ChildPath "remotes.ps1"
+
+# Create the directory if it doesn't exist
+if (-Not (Test-Path $outputDir)) {
+    New-Item -Path $outputDir -ItemType Directory
+}
+
+# Clear the output file if it exists
+if (Test-Path $outputFilePath) {
+    Clear-Content $outputFilePath
+}
+
 function Get-ChildItemLimitedDepth {
     param (
         [Alias("PSPath")]
@@ -25,15 +40,24 @@ Get-ChildItemLimitedDepth -Path $sourcePath -Depth 3 | Where-Object { $_.Name -e
     Set-Location -Path $_.Parent.FullName
     $parentDir = $_.Parent.FullName
     $remotes = git remote -v
-    $remotes.Split("`n") | Where-Object { $_ -match '(origin).*(fetch)' } | ForEach-Object {
-        $remoteUrl = ($_ -split '\s+')[1]
-        Write-Output "`n# Create directory and navigate to it"
-        Write-Output "mkdir `"$parentDir`" -Force"
-        Write-Output "takeown /F `"$parentDir`" /R"
-        Write-Output "cd `"$parentDir`""
-        Write-Output "# Initialize git and add remote"
-        Write-Output "git init"
-        # Write-Output "git remote remove origin"
-        Write-Output "git remote add origin $remoteUrl"
+
+    if (![string]::IsNullOrEmpty($remotes)) {
+        $remotes.Split("`n") | Where-Object { $_ -match '(origin).*(fetch)' } | ForEach-Object {
+            $remoteUrl = ($_ -split '\s+')[1]
+            $output = @"
+`n# Create directory and navigate to it
+mkdir `"$parentDir`" -Force
+takeown /F `"$parentDir`" /R
+cd `"$parentDir`"
+# Initialize git and add remote
+git init
+git remote add origin $remoteUrl
+"@
+            # Write to the output file
+            $output | Out-File -FilePath $outputFilePath -Append
+        }
+    }
+    else {
+        "No remotes found for $parentDir" | Out-File -FilePath $outputFilePath -Append
     }
 }

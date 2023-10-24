@@ -45,6 +45,7 @@ cp public\powerlevel10k_monokai.omp.json ~\Documents\PowerShell
 cp public\Microsoft.PowerShell_profile.ps1 ~\Documents\PowerShell
 Unblock-File ~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 Install-Module -Name PowerShellAI
+.\private\openapi.ps1
 
 # Setup VS Code
 choco install firacode vscode
