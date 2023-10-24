@@ -52,6 +52,7 @@ cd `"$parentDir`"
 # Initialize git and add remote
 git init
 git remote add origin $remoteUrl
+cd `"$currentDir`"
 "@
             # Write to the output file
             $output | Out-File -FilePath $outputFilePath -Append
