@@ -29,8 +29,9 @@ choco install googlechrome 7zip vlc powertoys winscp rufus sharex vmware-worksta
 # Setup CLI tools
 choco install bind-toolsonly micro
 
-# Setup Dev tools
+# Setup Dev tools - relaunch Terminal
 choco install git nodejs python composer visualstudio2022buildtools
+exit
 cp private\.gitconfig ~
 cp -Recurse private\.ssh ~
 .\private\remotes.ps1
