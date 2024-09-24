@@ -2,61 +2,59 @@
 # Awesome muso
 
 Curated list of tools I'm using, installed step by step right after installation of Windows 11 OS from Windows Terminal (run as Administrator).
-```irm gg.gg/awesomemuso```
-
 
 ```powershell
-# Unrestrict execution of scripts in PowerShell
-Set-ExecutionPolicy unrestricted
+irm gg.gg/awesomemuso
+```
 
-# ChrisTitusTech tool - disable mouse acceleration, enable numlock, install WSL2...
+# Unrestrict execution of scripts in PowerShell
+
+```powershell
+Set-ExecutionPolicy unrestricted
+```
+
+# ChrisTitusTech wintool - disable mouse acceleration, enable numlock, import json to install apps
+
+```powershell
 irm christitus.com/win | iex
+```
 
 # Sophia script - run if official MS setup iso was used to remove preinstalled bloatware
-irm script.sophi.app | iex
 
-# Optimizer tool - run if some other system tweaks are needed
-iwr ((irm api.github.com/repos/hellzerg/optimizer/releases/latest | % assets | % browser_download_url)) -OutFile Optimizer.exe; & .\Optimizer.exe
+```powershell
+irm script.sophi.app | iex
+```
 
 # Chocolatey package manager
+
+```powershell
 irm community.chocolatey.org/install.ps1 | iex
 choco feature enable -n allowGlobalConfirmation
 choco feature enable -n allowEmptyChecksums
-
-# Install software
-choco install googlechrome 7zip vlc powertoys winscp rufus sharex vmware-workstation-player
-
-# Setup CLI tools
-choco install bind-toolsonly micro
-
-# Setup Dev tools - relaunch Terminal
-choco install git nodejs python composer visualstudio2022buildtools
-exit
-cp private\.gitconfig ~
-cp -Recurse private\.ssh ~
-.\private\remotes.ps1
-
-# Setup CopyQ
-iwr (irm api.github.com/repos/hluk/CopyQ/releases/latest).assets[0].browser_download_url -o CopyQ.exe;& .\CopyQ.exe
-cp public\copyq-commands.ini $env:APPDATA\copyq
-
-# Setup PowerShell
-choco install pwsh microsoft-windows-terminal nerd-fonts-firacode oh-my-posh
-cp public\powerlevel10k_monokai.omp.json ~\Documents\PowerShell
-cp public\Microsoft.PowerShell_profile.ps1 ~\Documents\PowerShell
-Unblock-File ~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
-Install-Module -Name PowerShellAI
-.\private\openapi.ps1
-
-# Setup VS Code
-choco install firacode vscode
-cp private\sftp\ ~\Documents
-
-# Setup Entertainment
-choco install steam battle.net discord jdownloader qbittorrent stremio
-
-# (Optional) Edit and backup PowerShell command history
-code (Get-PSReadlineOption).HistorySavePath
 ```
 
-To install Windows Subsystem for Linux follow https://github.com/musosoft/awesome-muso/blob/master/install-WSL.md
+# Install software not in CTT wintool
+
+```powershell
+choco install bind-toolsonly whois firacode nerd-fonts-firacode adb
+```
+
+# Tweak software
+
+```powershell
+cp "G:\My Drive\private\.gitconfig" ~
+cp -Recurse "G:\My Drive\private\.ssh" ~
+."G:\My Drive\private\remotes.ps1"
+cp ~\Documents\PowerShell\awesome-muso\public\copyq-commands.ini $env:APPDATA\copyq
+cp ~\Documents\PowerShell\awesome-muso\public\powerlevel10k_monokai.omp.json ~\Documents\PowerShell
+cp ~\Documents\PowerShell\awesome-muso\public\Microsoft.PowerShell_profile.ps1 ~\Documents\PowerShell
+Unblock-File ~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+."G:\My Drive\private\api.ps1"
+cp "G:\My Drive\private\sftp\" ~\Documents
+```
+
+# (Optional) Edit and backup PowerShell command history
+
+```powershell
+code (Get-PSReadlineOption).HistorySavePath
+```
