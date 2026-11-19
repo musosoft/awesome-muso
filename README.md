@@ -67,3 +67,11 @@ cp -r -fo "G:\My Drive\private\sftp\" ~\Documents
 ```powershell
 code (Get-PSReadlineOption).HistorySavePath
 ```
+
+## Gaming mode
+
+Run `gaming-mode.ps1` to select services, processes, and running scheduled tasks. The GUI stores its shared configuration in
+`%LOCALAPPDATA%\GamingMode\config.json`. **Save & Enter** stops only selected items that are currently running;
+`process-restore-after-gaming.ps1` restores only items actually changed by that run. State is kept in
+`%LOCALAPPDATA%\GamingMode\state.json`, so entering or restoring repeatedly is safe. Run the standalone enter script with
+`process-kill-before-gaming.ps1`.
